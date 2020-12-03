@@ -1,0 +1,73 @@
+let balls = [];
+let triangles = []
+
+function setup() {
+  createCanvas(800, 400);
+
+}
+
+function draw() {
+  background(220);
+
+  for (let i = 0; i < balls.length; i++) {
+    balls[i].drawBall();
+    balls[i].moveBall();
+  }
+  for (let i = 0; i < triangles.length; i++) {
+    triangles[i].drawTriangle();
+    triangles[i].moveTriangle();
+  }
+}
+
+function keyPressed() {
+  let b = new Ball(100, 100)
+  balls.push(b)
+  print(balls)
+  let t = new Triangle(100, 700)
+  triangles.push(t)
+  print(triangles)
+}
+class Ball {
+
+  constructor(x, y, size, color) {
+    this.x = x;
+    this.y = y;
+    this.size = random(10, 20)
+    this.color = random(0, 255)
+  }
+
+  drawBall() {
+    stroke(0);
+    fill(this.color);
+    ellipse(this.x, this.y, this.size, this.size);
+  }
+
+  moveBall() {
+    this.x = this.x + 2;
+    this.y = this.y + 0.5;
+  }
+
+
+}
+class Triangle {
+
+  constructor(x, y, size, color) {
+    this.x = x;
+    this.y = y;
+    this.size = random(10, 20)
+    this.color = random(0, 255)
+  }
+
+  drawTriangle() {
+    stroke(0);
+    fill(this.color);
+    triangle(this.x, this.y, this.size, this.size);
+  }
+
+  moveTriangle() {
+    this.x = this.x + 2;
+    this.y = this.y - 0.5;
+  }
+
+
+}
