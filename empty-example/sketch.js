@@ -5,6 +5,7 @@ function setup() {
 
 function draw(){
 	background(220,100,3);
+  drawGrid()
 }
 
 function drawGrid()
