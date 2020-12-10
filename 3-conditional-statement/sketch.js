@@ -34,6 +34,40 @@ function draw(){
 
 }
 
+
+
+//ball class from which to create new balls with similar properties.
+class Ball {
+
+	//every ball needs an x value, a y value, and a speed
+	constructor(x,y, speed){
+		this.x = x;
+    this.y = y;
+    this.speed = speed;
+	}
+
+	// draw a ball on the screen at x,y
+	drawBall(){
+    	stroke(0);
+      strokeWeight(1);
+    	fill("red");
+		  ellipse(this.x,this.y,10,10);
+	}
+
+	//update the location of the ball, so it moves across the screen
+	moveBall(){
+		this.x = this.x+ this.speed;
+		this.y = this.y+.5;
+	}
+
+	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
+  	bounceBall(){
+    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+      			this.speed = -this.speed;
+    		}
+  	}
+
+}
 //avatar class
 class Avatar {
 
@@ -72,36 +106,3 @@ class Avatar {
 
 }
 
-
-//ball class from which to create new balls with similar properties.
-class Ball {
-
-	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
-		this.x = x;
-    this.y = y;
-    this.speed = speed;
-	}
-
-	// draw a ball on the screen at x,y
-	drawBall(){
-    	stroke(0);
-      strokeWeight(1);
-    	fill("red");
-		  ellipse(this.x,this.y,10,10);
-	}
-
-	//update the location of the ball, so it moves across the screen
-	moveBall(){
-		this.x = this.x+ this.speed;
-		this.y = this.y+.5;
-	}
-
-	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-      			this.speed = -this.speed;
-    		}
-  	}
-
-}
