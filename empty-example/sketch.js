@@ -1,14 +1,16 @@
-let player
+var avatarx = 40
+var avatary = 40
 
 function setup() {
   createCanvas(800, 800);
-  player=new avatar(this.x, this.y, 80)
+
 }
 
 function draw() {
- drawGrid()
-  player.drawAvatar()
-  player.moveAvatar()
+  background(255)
+  ellipse(avatarx, avatary, 40, 40)
+  drawGrid()
+
 }
 
 function drawGrid() {
@@ -22,28 +24,19 @@ function drawGrid() {
   }
 }
 
-class avatar {
-  constructor(x, y, speed) {
-    this.x = 80
-    this.y = 80
-    this.speed = 80
+
+
+function keyPressed() {
+  if (keyCode === UP_ARROW && avatary >= 41) {
+    avatary = avatary - 80
   }
-  drawAvatar() {
-    fill(0)
-    rect(this.x - 20, this.y - 20, this.x + 20, this.y + 20)
+  if (keyCode === LEFT_ARROW && avatarx >= 41) {
+    avatarx = avatarx - 80
   }
-  moveAvatar() {
-    if (keyPressed(UP_ARROW)) {
-      this.y -= this.speed
-    }
-    if (keyPressed(DOWN_ARROW)) {
-      this.y += this.speed
-    }
-    if (keyPressed(LEFT_ARROW)) {
-      this.x -= this.speed
-    }
-    if (keyPressed(RIGHT_ARROW)) {
-      this.x += this.speed
-    }
+  if (keyCode === DOWN_ARROW && avatary <= 759) {
+    avatary = avatary + 80
+  }
+  if (keyCode === RIGHT_ARROW && avatarx <= 759) {
+    avatarx = avatarx + 80
   }
 }
