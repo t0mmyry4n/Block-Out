@@ -1,19 +1,9 @@
 var avatarx = 40
 var avatary = 40
 
-let hazardA
-let hazardB
-let latitudes = [40,120,200,280,360,440,520,600,680,760]
-let latitude = random(latitudes)
-let longitudes = [40,120,200,280,360,440,520,600,680,760]
-let longitude = random(longitudes)
-
 function setup() {
   createCanvas(800, 800);
   rectMode(CENTER);
-
-  hazardA = new Hazard(x,y,w,h);
-  hazardB = new Hazard(x,y,w,h);
 
 }
 
@@ -29,21 +19,6 @@ function draw() {
   pop();
   drawGrid();
   die();
-
-}
-
-class Hazard {
-
-  constructor(x,y,w,h){
-    this.x = random(latitude);
-    this.y = random(longitude);
-    this.w = 40
-    this.h = 40
-  }
-
-  drawHazard(){
-    rect(this.x,this.y,this.w,this.h);
-  }
 
 }
 
