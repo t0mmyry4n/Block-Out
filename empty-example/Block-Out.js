@@ -28,7 +28,7 @@ function draw() {
     }
     if (frameCount == 200) {
       frameCount = 100
-      fr = fr + 2.5
+      fr = fr + 5
 
     }
 
