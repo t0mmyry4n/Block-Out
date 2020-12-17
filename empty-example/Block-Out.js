@@ -52,7 +52,7 @@ class Hazard {
 
   }
   drawHazard() {
-    fill(frameCount)
+    fill(frameCount-100)
     rect(this.x - 40, this.y - 40, 80, 80)
   }
   detectHazard() {
