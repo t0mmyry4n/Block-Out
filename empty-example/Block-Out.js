@@ -1,7 +1,7 @@
 var avatarX = 40
 var avatarY = 40
 let hazard = []
-let fr = 30
+var fr = 30
 
 function setup() {
   createCanvas(800, 800)
